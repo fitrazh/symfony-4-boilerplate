@@ -89,6 +89,7 @@ and run this query:
 
 1-Register User Methode:[POST]
 `http://localhost:8000/api/auth/register`
+body json
 `{"username":"super","password":"super", "email":"super@yomail.com"}`
 RETURN:
 `{"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzE2MTkzNjAsImV4cCI6MTU3MTYyMjk2MCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGF0YXRhIn0.UO7ExnSzoTtAeIbHI11mW_bmWHANxhVeLBjCS1Dqs9YI4IFCzbHYROVUAm-gD9nhqZ2AZsAqsI-Ee5fT8pZA8-r02JmZIgLiN4sem5UHOg-D19U1ubfkNF2XV0hYwduZGLi2RaYkIEQHJJnHH8OhWB9gDaLdq5j2VVLpf8O_WIZ8bK-NM03BVea95uauhuujsHO4Io865DJBhbUqqqoh4kaDdGT13KyNeQ0G0nTgcVHjlgaUNxpUm7Jcr781JRNzAIliWN-Qwjm5I8WCu6IwtBrQxM9vrx-AxM779hCM7N0shwjbp7CTsWhNT9KEC2P6jpStXs74QBHfT6-LNaQvmDFcpjcshJMX4gWk7x9sy9YZr8_AblCux_KnZGecFozsc2W7avZ2Hf7WiRYkGikTABQxUyHtXyCZMaLBg9htbbyCOo3Ae9j_Z8-fRk9dEtvBRDMMrOu-ouCyk3obJoia-kk7CvGqde7iPT_f51WQJEuw91el8IrDpIx0b5JpjWA2okr_G2MTIVT_wXbGymLfBuDqChGP_3me5C4mSkCTBktFsBWcmfMJCnq2i-DwFMPTuNE_zhpOibDNXRZbGaIRH4cZ8dE_VplDz4bZxbFeRGdKlClU4Vi5u4ifI1Y44uyUmv4c2DPxk4dJgXSbGlJrnqsNQMSAYtVgvif9wYrD0Pc"}`
@@ -97,6 +98,7 @@ RETURN:
 
 2-Login User Methode:[POST]
 `http://localhost:8000/api/auth/login`
+body json
 `{"username":"patata","password":"fregida"}`
 
 RETURN:
