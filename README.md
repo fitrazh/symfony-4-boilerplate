@@ -57,13 +57,14 @@ If you need To clear the cache, run the script with the environment parameter
 `bash cacl.sh dev`
 
 
-IF you found error "Table not Found" when running the request, please follow this step:
+**Note:IF you found error "Table not Found" when running the request, please follow this step:
 
 create this table into mysql docker 
 to make sure where is mysql running, you can run this command:
 `sudo systemctl status docker`
 
 Return:
+`
 CGroup: /system.slice/docker.service
            ├─11789 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
            ├─19729 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 3311 -container-ip 172.19.0.3 -container-port 3306
@@ -71,13 +72,13 @@ CGroup: /system.slice/docker.service
            ├─26796 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8080 -container-ip 172.20.0.2 -container-port 8080
            ├─26850 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8307 -container-ip 172.20.0.4 -container-port 3306
            ├─26904 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8000 -container-ip 172.20.0.5 -container-port 80
-           └─26965 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8306 -container-ip 172.20.0.6 -container-port 3306 <-- this is our mysql
+           └─26965 /usr/bin/docker-proxy -proto tcp -host-ip 0.0.0.0 -host-port 8306 -container-ip 172.20.0.6 -container-port 3306 <-- this is our mysql`
 
 
-you need to connect to this host 172.20.0.6:3306 sql 
+`you need to connect to this host 172.20.0.6:3306 sql 
 username: sf4_user
 password: sf4_pw
-db: sf4_db
+db: sf4_db`
 
 and run this query:
 
@@ -97,21 +98,32 @@ RETURN:
 
 
 2-Login User Methode:[POST]
+
 `http://localhost:8000/api/auth/login`
-body json
+
+body json:
+
 `{"username":"patata","password":"fregida"}`
 
 RETURN:
 `{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzE2MjM2ODYsImV4cCI6MTU3MTYyNzI4Niwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGF0YXRhIn0.r25F_yX-d8tEa2JGmX2LkFGillvQaQDVql2nwE3fJco9yAH7WApc-NaopXwx6_88u7azZ6kZop6madVqZzKNKtQFBOSEKsqNPuXxlQmfDbo5fN--_Iwf4aE2mS1nxZvubdADoABMq9IC4Xoux91dgwbiDf4SMbCdPQghRvLWgu2xB1ZRkzifnbkz-LyebKiH8o-s-7aIfJaXnlx8UcOXx0SZ_LFT4vURozTgad1jSGgMNC5jSEAGDAgGqS2oTtVTT8lxA6eqsxG_gXyFoAD0Yt5BwXGtKkPCTwDS3gDNtlqY6lqe2Ztq9TYEUJsJRzSezKw9feMyrXPebkLkS9hkrJDxzbULjkxgzPxv43q3WUx_Prnu2b4KFyNVVUId1l-ed2m3J8SG3YPemTvzmaDLWymq9zq4Uxs8KC7Z7LITSlLUNlYxXfyv9wUTnMm0uJYPIKxV7MEK2WdcOq6_q2ujM5rLu7LZX9Al4387lZJpRU9t2_rtqKDHZ7P7oM-T34HGwADOI8dNzjAozhJ-uVvnAp4MbHo8Y5XycRoVkZUW7cexvCVaPFx6eyTJJ1IR7klZSx7kakhBOu_QeXnqFAGKPUGoytq7KBVGVl0t-rfW1WsZYRItOUEPEddS5gsdBd8K52nFYTrq9SWqHVNe3-bbE69n9RBi-6zx8Tl_eVptQ7Y"}`
 
+
+
 3-Login
+
 `http://localhost:8000/api/user/1`
+
 Auth Bearer Token
+
 `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NzE2MjM2ODYsImV4cCI6MTU3MTYyNzI4Niwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoicGF0YXRhIn0.r25F_yX-d8tEa2JGmX2LkFGillvQaQDVql2nwE3fJco9yAH7WApc-NaopXwx6_88u7azZ6kZop6madVqZzKNKtQFBOSEKsqNPuXxlQmfDbo5fN--_Iwf4aE2mS1nxZvubdADoABMq9IC4Xoux91dgwbiDf4SMbCdPQghRvLWgu2xB1ZRkzifnbkz-LyebKiH8o-s-7aIfJaXnlx8UcOXx0SZ_LFT4vURozTgad1jSGgMNC5jSEAGDAgGqS2oTtVTT8lxA6eqsxG_gXyFoAD0Yt5BwXGtKkPCTwDS3gDNtlqY6lqe2Ztq9TYEUJsJRzSezKw9feMyrXPebkLkS9hkrJDxzbULjkxgzPxv43q3WUx_Prnu2b4KFyNVVUId1l-ed2m3J8SG3YPemTvzmaDLWymq9zq4Uxs8KC7Z7LITSlLUNlYxXfyv9wUTnMm0uJYPIKxV7MEK2WdcOq6_q2ujM5rLu7LZX9Al4387lZJpRU9t2_rtqKDHZ7P7oM-T34HGwADOI8dNzjAozhJ-uVvnAp4MbHo8Y5XycRoVkZUW7cexvCVaPFx6eyTJJ1IR7klZSx7kakhBOu_QeXnqFAGKPUGoytq7KBVGVl0t-rfW1WsZYRItOUEPEddS5gsdBd8K52nFYTrq9SWqHVNe3-bbE69n9RBi-6zx8Tl_eVptQ7Y` 
 
 4-generate Reward
+
 `http://localhost:8000/reward`
+
 RETURN
+
 `"[{\"name\":\"deni\",\"rangeMin\":10000,\"rangeMax\":20000,\"reward\":19724,\"dailyLimit\":180276},{\"name\":\"Gilbert\",\"rangeMin\":45000,\"rangeMax\":75000,\"reward\":66922,\"dailyLimit\":113354},{\"name\":\"Brandon\",\"rangeMin\":60000,\"rangeMax\":80000,\"reward\":64156,\"dailyLimit\":49198},{\"name\":\"Tere\",\"rangeMin\":30000,\"rangeMax\":50000,\"reward\":48659,\"dailyLimit\":539},{\"name\":\"Jil\",\"rangeMin\":25000,\"rangeMax\":35000,\"reward\":539,\"dailyLimit\":0},{\"name\":\"Jil_super\",\"rangeMin\":155000,\"rangeMax\":200000,\"reward\":0,\"dailyLimit\":0}]"`
 
 
