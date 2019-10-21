@@ -56,6 +56,8 @@ If you need To clear the cache, run the script with the environment parameter
 
 `bash cacl.sh dev`
 
+To make sure our step is Ok, lets check our url: `http://localhost:8000/`
+
 
 **Note:IF you found error "Table not Found" when running the request, please follow this step:
 
