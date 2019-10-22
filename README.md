@@ -29,15 +29,6 @@ You can do this by running the script, which will create a clean database and sc
 
 **Note: This script will actually delete any database internal on (current docker) that's already created, so be careful when using this.
 
-#### Fixtures
-
-If you want to create the database with some fixtures, you may run the script 
-
-`bash install-import-fixtures.sh`
-
-**Note: This script will actually delete any database that's already created, so be careful when using this.
-
-
 ## Docker
 
 To run the application in development mode
